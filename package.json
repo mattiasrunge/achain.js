@@ -1,6 +1,6 @@
 {
   "name"         : "achain.js",
-  "version"      : "0.0.2",
+  "version"      : "0.0.3",
   "description"  : "A wrapper on top of Stewardess to expose a very simple API for simpler use cases.",
   "author"       : "Mattias Runge <mattias@runge.se>",
   "devDependencies" : {
