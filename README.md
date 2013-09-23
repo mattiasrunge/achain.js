@@ -23,7 +23,7 @@ A wrapper on top of [Stewardess][1] to expose a very simple API for simpler use 
     $ {
     $   if (error)
     $   {
-    $     done(error);
+    $     console.log(error);
     $     return;
     $   }
     $ 
