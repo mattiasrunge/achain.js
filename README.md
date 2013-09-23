@@ -5,6 +5,8 @@ A wrapper on top of [Stewardess][1] to expose a very simple API for simpler use 
 
 ## Usage
 
+    $  var Chain = require("achain.js");
+    $
     $  var args_list = [ 1, 2, 3, 4, 5, 6, 7 ];
     $  var chain = new Chain();
     $     
