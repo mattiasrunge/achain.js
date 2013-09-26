@@ -17,5 +17,8 @@
   "repository"   : {
     "type" : "git",
     "url"  : "https://github.com/mattiasrunge/achain.js.git"
+  },
+  "scripts": {
+    "test": "make test"
   }
 }
