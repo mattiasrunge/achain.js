@@ -1,9 +1,9 @@
 SRC = $(shell find . \( -name "*.js" \) -o \( -name node_modules -prune \) -type f | sort)
 
 lint:
-	@jshint ${SRC}
+	@./node_modules/.bin/jshint ${SRC}
 
 test:
-	@mocha --reporter spec --ui tdd --recursive
+	@./node_modules/.bin/mocha --reporter spec --ui tdd --recursive
 
 .PHONY: lint test

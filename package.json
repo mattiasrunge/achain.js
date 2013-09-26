@@ -4,7 +4,9 @@
   "description"  : "A wrapper on top of Stewardess to expose a very simple API for simpler use cases.",
   "author"       : "Mattias Runge <mattias@runge.se>",
   "devDependencies" : {
-    "assert" : ">= 0.4.9"
+    "assert" : ">= 0.4.9",
+    "mocha" : ">= 1.13.0",
+    "jshint" : ">= 2.1.11"
   },
   "dependencies" : {
     "stewardess": ">= 0.2.2"

@@ -1,9 +1,7 @@
 # achain.js
+[![Build Status](https://travis-ci.org/mattiasrunge/achain.png)](https://travis-ci.org/mattiasrunge/achain)
 
 A wrapper on top of [Stewardess][1] to expose a very simple API for simpler use cases. Please look at the code or the test code for more examples.
-
-## Travis CI
-[![Build Status](https://travis-ci.org/mattiasrunge/achain.png)](https://travis-ci.org/mattiasrunge/achain])
 
 ## Usage
 
