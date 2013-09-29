@@ -18,6 +18,14 @@ module.exports = function()
 
   self.add = function(args, action)
   {
+    args = args || {};
+
+    if (typeof args === "function")
+    {
+      action = args;
+      args = {};
+    }
+
     self.list.push({ args: args, action: action });
 
     return self;
