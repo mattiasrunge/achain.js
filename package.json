@@ -1,7 +1,7 @@
 {
   "name"         : "achain.js",
-  "version"      : "0.0.3",
-  "description"  : "A wrapper on top of Stewardess to expose a very simple API for simpler use cases.",
+  "version"      : "0.0.4",
+  "description"  : "A simple module to chain asynchronous calls.",
   "author"       : "Mattias Runge <mattias@runge.se>",
   "devDependencies" : {
     "assert" : ">= 0.4.9",
@@ -9,7 +9,6 @@
     "jshint" : ">= 2.1.11"
   },
   "dependencies" : {
-    "stewardess": ">= 0.2.2"
   },
   "engines"      : {
     "node" : ">= 0.8.0"

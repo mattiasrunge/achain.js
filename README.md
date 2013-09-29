@@ -1,7 +1,7 @@
 # achain.js
 [![Build Status](https://travis-ci.org/mattiasrunge/achain.js.png)](https://travis-ci.org/mattiasrunge/achain.js)
 
-A wrapper on top of [Stewardess][1] to expose a very simple API for simpler use cases. Please look at the code or the test code for more examples.
+A simple module to chain asynchronous calls. Please look at the code or the test code for more examples.
 
 ## Usage
 
@@ -38,6 +38,3 @@ chain.final(function(error, options)
 chain.run();
 
 ```
-
-[1]: https://github.com/ifit/stewardess
-

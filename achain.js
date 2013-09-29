@@ -1,11 +1,10 @@
 
-var stewardess = require("stewardess");
-
 module.exports = function()
 {
   var self = this;
 
-  self.chain = stewardess();
+  self.list = [];
+  self.final = function() {};
 
   self.addMany = function(args_list, action)
   {
@@ -19,33 +18,14 @@ module.exports = function()
 
   self.add = function(args, action)
   {
-    self.chain.add(function(options, next)
-    {
-      action(args, options, function(error)
-      {
-        if (error)
-        {
-          options.error = error;
-          next("break");
-          return;
-        }
-          
-        next();
-      });
-    });
+    self.list.push({ args: args, action: action });
 
     return self;
   };
 
   self.final = function(action)
   {
-    self.chain.final(function(options)
-    {
-      var error = options.error;
-      delete options.error;
-
-      action(error, options);
-    });
+    self.final = action;
 
     return self;
   };
@@ -60,8 +40,31 @@ module.exports = function()
       options = {};
     }
 
-    self.chain.run(options);
+    self._runRecursive(0, options, function(error)
+    {
+      self.final(error, options);
+    });
 
     return self;
+  };
+
+  self._runRecursive = function(index, options, callback)
+  {
+    if (index >= self.list.length)
+    {
+      callback();
+      return;
+    }
+
+    self.list[index].action(self.list[index].args, options, function(error)
+    {
+      if (error)
+      {
+        callback(error);
+        return;
+      }
+
+      self._runRecursive(index + 1, options, callback);
+    });
   };
 };
