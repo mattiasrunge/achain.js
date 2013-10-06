@@ -44,8 +44,13 @@ module.exports = function()
 
     if (typeof options === "function")
     {
-      self.final(options);
+      callback = options;
       options = {};
+    }
+
+    if (callback)
+    {
+      self.final(callback);
     }
 
     self._runRecursive(0, options, function(error)

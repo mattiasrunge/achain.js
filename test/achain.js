@@ -13,6 +13,29 @@ suite("acchain.js", function()
     chain.run();
   });
 
+  test("Test empty chain with options", function(done)
+  {
+    var chain = new Chain();
+    
+    chain.final(done);
+
+    chain.run({});
+  });
+
+  test("Test empty chain with options and run", function(done)
+  {
+    var chain = new Chain();
+    
+    chain.run({}, done);
+  });
+
+  test("Test empty chain with run", function(done)
+  {
+    var chain = new Chain();
+    
+    chain.run(done);
+  });
+
   test("Simple one function chain", function(done)
   {
     var chain = new Chain();
