@@ -4,7 +4,7 @@ module.exports = function()
   var self = this;
 
   self.list = [];
-  self.final = function() {};
+  self.done = function() {};
 
   self.addMany = function(args_list, action)
   {
@@ -33,7 +33,7 @@ module.exports = function()
 
   self.final = function(action)
   {
-    self.final = action;
+    self.done = action;
 
     return self;
   };
@@ -55,7 +55,7 @@ module.exports = function()
 
     self._runRecursive(0, options, function(error)
     {
-      self.final(error, options);
+      self.done(error, options);
     });
 
     return self;
