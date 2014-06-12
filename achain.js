@@ -1,8 +1,9 @@
 
-module.exports = function()
+module.exports = function(async)
 {
   var self = this;
 
+  self.async = async;
   self.list = [];
   self.done = function() {};
 
@@ -53,10 +54,23 @@ module.exports = function()
       self.final(callback);
     }
 
-    self._runRecursive(0, options, function(error)
+    if (self.async)
     {
-      self.done(error, options);
-    });
+      process.nextTick(function()
+      {
+        self._runRecursive(0, options, function(error)
+        {
+          self.done(error, options);
+        });
+      });
+    }
+    else
+    {
+      self._runRecursive(0, options, function(error)
+      {
+        self.done(error, options);
+      });
+    }
 
     return self;
   };
@@ -76,8 +90,18 @@ module.exports = function()
         callback(error);
         return;
       }
-
-      self._runRecursive(index + 1, options, callback);
+      
+      if (self.async)
+      {
+        process.nextTick(function()
+        {
+          self._runRecursive(index + 1, options, callback);
+        });
+      }
+      else
+      {
+        self._runRecursive(index + 1, options, callback);
+      }
     });
   };
 };

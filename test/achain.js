@@ -113,4 +113,30 @@ suite("acchain.js", function()
       done();
     });
   });
+
+  test("Check that the async mode is actually async", function(done)
+  {
+    var temp = 0;
+    var chain = new Chain(true);
+
+    chain.add(function(args, options, callback)
+    {
+      temp++;
+      callback();
+    });
+
+    chain.add(function(args, options, callback)
+    {
+      temp++;
+      callback();
+    });
+
+    chain.run(function(error, options)
+    {
+      assert.equal(temp, 2);
+      done();
+    });
+
+    assert.equal(temp, 0);
+  });
 });
